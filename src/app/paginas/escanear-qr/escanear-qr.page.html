@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registrar Asistecia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Código QR del Usuario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Mostrar el código QR del usuario autenticado -->
+      <qr-code [value]="qrUsuario" size="280" errorCorrectionLevel="M"></qr-code>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

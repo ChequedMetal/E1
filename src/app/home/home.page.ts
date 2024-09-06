@@ -11,7 +11,7 @@ export class HomePage {
   constructor(private router: Router, private authService: AuthService) {}
 
   logout() {
-    this.authService.logout();
+    this.authService.cerrarSesion();
     this.router.navigate(['/login']);
   }
 }

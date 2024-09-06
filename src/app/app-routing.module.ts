@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login',
+    path: 'login', //aca se crea el nombre con la que se llamara la pagina
     loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule)
   },
   {
@@ -26,6 +26,18 @@ const routes: Routes = [
   {
     path: 'perfil-usuario',
     loadChildren: () => import('./paginas/perfil-usuario/perfil-usuario.module').then( m => m.PerfilUsuarioPageModule)
+  },
+  {
+    path: 'horario',
+    loadChildren: () => import('./paginas/horario/horario.module').then( m => m.HorarioPageModule)
+  },
+  {
+    path: 'escanear-qr',
+    loadChildren: () => import('./paginas/escanear-qr/escanear-qr.module').then( m => m.EscanearQrPageModule)
+  },
+  {
+    path: 'ver-asistencia',
+    loadChildren: () => import('./paginas/ver-asistencia/ver-asistencia.module').then( m => m.VerAsistenciaPageModule)
   },
 ];
 

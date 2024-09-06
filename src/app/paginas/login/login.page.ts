@@ -14,7 +14,7 @@ export class LoginPage {
   constructor(private router: Router, private authService: AuthService) {}
 
   onLogin() {
-    const confirmacion = this.authService.login(this.email, this.password);
+    const confirmacion = this.authService.iniciarSesion(this.email, this.password);
     if (confirmacion) {
       this.router.navigate(['/perfil-usuario']);
     } else {
