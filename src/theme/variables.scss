@@ -1,2 +1,37 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+// src/theme/variables.scss
+
+// Colores globales
+$colors: (
+  primary:    #5D3FD3,  // Un tono violeta oscuro
+  secondary:  #4B0082,  // Otro tono violeta oscuro
+  tertiary:   #301934,  // Un tono aún más oscuro de violeta
+  success:    #28a745,  // Puedes mantener el color de éxito o ajustarlo según prefieras
+  warning:    #ffc107,  // Puedes mantener el color de advertencia o ajustarlo según prefieras
+  danger:     #dc3545,  // Puedes mantener el color de error o ajustarlo según prefieras
+  dark:       #000000,  // Negro
+  medium:     #2A2A2A,  // Un tono gris oscuro cercano al negro
+  light:      #F4F4F4   // Blanco para el texto
+);
+
+// Variables de tema
+:root {
+  --ion-color-primary:    #8d77e7;
+  --ion-color-secondary:  #8d77e7;
+  --ion-color-tertiary:   #301934;
+  --ion-color-success:    #28a745;
+  --ion-color-warning:    #ffc107;
+  --ion-color-danger:     #dc3545;
+  --ion-color-dark:       #000000;
+  --ion-color-medium:     #2A2A2A;
+  --ion-color-light:      #F4F4F4;
+
+  // Colores de texto
+  --ion-text-color:       #FFFFFF;  // Blanco para el texto
+  --ion-text-color-rgb:   255, 255, 255;
+
+  // Fondo
+  --ion-background-color: #000000;  // Negro para el fondo
+  --ion-background-color-rgb: 0, 0, 0;
+}

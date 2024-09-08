@@ -1,5 +1,12 @@
 ion-content {
-    --background: #f4f4f4; /* Fondo claro */
+  
+    background-image: url('/assets/imagenes/OIG2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Hace que el fondo permanezca fijo mientras se hace scroll */
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+  }
   
     ion-card {
       margin-top: 50px;
@@ -35,5 +42,7 @@ ion-content {
       --color: #3880ff; /* Color de los botones adicionales */
       font-size: 14px;
     }
-  }
+  
+
+
   
