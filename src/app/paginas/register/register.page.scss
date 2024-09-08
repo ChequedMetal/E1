@@ -1,29 +1,24 @@
-/* Estilos generales para el formulario */
 .register-form {
-    max-width: 350x; /* Limita el ancho del formulario */
-    margin: 20px auto; /* Centra el formulario horizontalmente y añade margen en la parte superior */
-    padding: 20px; /* Añade espacio interno alrededor del formulario */
-    background-color: rgba(121, 29, 197, 0.2); /* Fondo blanco con 90% de opacidad */
-    border-radius: 10px; /* Bordes redondeados para el formulario */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Sombra suave alrededor del formulario */
-  }
-  
-  /* Estilos para los elementos del formulario */
-  ion-item {
-    margin-bottom: 7px; /* Espacio entre los elementos del formulario */
-  }
-  
-  /* Estilo para las etiquetas del formulario */
-  ion-label {
-    color: #5D3FD3; /* Color de la etiqueta (violeta oscuro) */
-  }
-  
-  /* Estilo para los campos de entrada */
-  ion-input {
-    --padding-start: 12px; /* Añade espacio interno a la izquierda */
-    --padding-end: 12px; /* Añade espacio interno a la derecha */
-    --border-radius: 5px; /* Bordes redondeados para los campos de entrada */
-    --background: rgba(0, 0, 0, 0.5); /* Fondo blanco con 80% de opacidad */
-    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra ligera para los campos de entrada */
-  }
-  
+  max-width: 350px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(121, 29, 197, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+ion-item {
+  margin-bottom: 7px;
+}
+
+ion-label {
+  color: #5D3FD3;
+}
+
+ion-input {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --border-radius: 5px;
+  --background: rgba(0, 0, 0, 0.5);
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

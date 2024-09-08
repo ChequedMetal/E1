@@ -36,7 +36,7 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-/* src/global.scss */
+
 ion-app {
   background-image: url('/assets/imagenes/OIG2.jpg');
   background-size: cover;
@@ -47,8 +47,7 @@ ion-app {
   width: 100%;
 }
 
-/* Asegura que el contenido sea transparente para que el fondo sea visible */
 ion-content {
-  --background: transparent;
+  --background: opacity: 0.8;
 }
 
