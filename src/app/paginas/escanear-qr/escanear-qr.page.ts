@@ -7,18 +7,18 @@ import { AuthService } from 'src/app/servicio/autentificacion.service';
   styleUrls: ['./escanear-qr.page.scss'],
 })
 export class EscanearQrPage implements OnInit {
-  qrUsuario: string = ''; // Almacena el valor del QR del usuario
+  qrUsuario: string = ''; 
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.generarQRUsuario(); // Genera el QR al cargar la página
+    this.generarQRUsuario(); 
   }
 
   generarQRUsuario() {
-    const usuario = this.authService.obtenerUsuarioAutenticado(); // Obtiene el usuario autenticado
+    const usuario = this.authService.obtenerUsuarioAutenticado(); 
     if (usuario) {
-      this.qrUsuario = usuario.qrCode; // Usa el QR predeterminado del usuario
+      this.qrUsuario = usuario.qrCode; 
     } else {
       this.qrUsuario = '';
       alert('Usuario no autenticado. Inicia sesión para ver tu QR.');

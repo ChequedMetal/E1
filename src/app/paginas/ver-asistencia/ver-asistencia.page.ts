@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular'; // Importa NavController de Ionic
+import { NavController } from '@ionic/angular'; 
 import { AuthService } from 'src/app/servicio/autentificacion.service';
 
 @Component({
@@ -8,19 +8,19 @@ import { AuthService } from 'src/app/servicio/autentificacion.service';
   styleUrls: ['./ver-asistencia.page.scss'],
 })
 export class VerAsistenciaPage implements OnInit {
-  historialAsistencia: any[] = []; // Define la propiedad para almacenar el historial de asistencia
+  historialAsistencia: any[] = []; 
 
-  constructor(private authService: AuthService, private navCtrl: NavController) {} // Inyecta NavController y AuthService
+  constructor(private authService: AuthService, private navCtrl: NavController) {} 
 
   ngOnInit() {
-    this.cargarAsistencia(); // Cargar el historial de asistencia al iniciar la página
+    this.cargarAsistencia(); 
   }
 
   cargarAsistencia() {
-    this.historialAsistencia = this.authService.obtenerHistorialAsistencia(); // Obtiene el historial de asistencia del usuario autenticado
+    this.historialAsistencia = this.authService.obtenerHistorialAsistencia(); 
   }
 
   volver() {
-    this.navCtrl.back(); // Utiliza NavController para navegar a la página anterior
+    this.navCtrl.back(); 
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular'; // Importa NavController de Ionic
+import { NavController } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-horario',
@@ -8,11 +8,11 @@ import { NavController } from '@ionic/angular'; // Importa NavController de Ioni
 })
 export class HorarioPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { } // Injecta NavController
+  constructor(private navCtrl: NavController) { } 
 
   ngOnInit() {}
 
   volver() {
-    this.navCtrl.back(); // Utiliza NavController para navegar a la página anterior
+    this.navCtrl.back(); 
   }
 }

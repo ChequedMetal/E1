@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private users = [
     {
-      email: 'hola@gmail.com', password: '123456', qrCode: 'hola@gmail.com',
+      email: 'hola@gmail.com', password: '123456', qrCode: 'hola@gmail.com', img:'assets/imagenes/women.png',
       attendance: [
         {
           seccion: 'PROGRAMACION DE APLICACIONES MOVILES_003V',
@@ -51,7 +51,7 @@ export class AuthService {
       ]
     },
     {
-      email: 'si@gmail.com', password: 'password', qrCode: 'si@gmail.com',
+      email: 'si@gmail.com', password: 'password', qrCode: 'si@gmail.com',img:'assets/imagenes/men.png',
       attendance: [
         {
           seccion: 'PROGRAMACION DE APLICACIONES MOVILES_003V',

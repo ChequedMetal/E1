@@ -8,24 +8,24 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- Contenedor principal de la página -->
   <div #container> 
-    <!--carta para perfil-->
+    <!--perfil-->
     <ion-card>
       <ion-card-content>
         <ion-item lines="none">
           <ion-avatar slot="start">
-            <img src="/src/assets/imagenes/istockphoto-955952680-612x612.jpg" alt="Imagen de Perfil">
+            <img [src]="imagenPerfil" alt="Imagen de Perfil">
           </ion-avatar>
           <ion-label>
-            <h2>Nombre de Usuario</h2>
+            <h2>{{ usuario ? usuario.email : 'Nombre de Usuario' }}</h2>
             <p>Usuario Registrado</p>
           </ion-label>
         </ion-item>
       </ion-card-content>
-    </ion-card>
+    </ion-card>    
+    
 
-    <!--vista de opciones-->
+    <!--opciones-->
     <ion-list>
       <ion-item lines="full">
         <ion-icon name="create-outline" slot="start"></ion-icon>

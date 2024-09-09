@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/servicio/autentificacion.service'; // Importa el servicio de autenticación
+import { AuthService } from 'src/app/servicio/autentificacion.service'; 
 
 @Component({
   selector: 'app-login',

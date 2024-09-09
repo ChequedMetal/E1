@@ -23,7 +23,6 @@ export class ResetPasswordPage {
     if (this.resetPasswordForm.valid) {
       const email = this.resetPasswordForm.value.email;
       console.log('Enviar solicitud de restablecimiento de contraseña para:', email);
-      // Aquí puedes agregar la lógica para enviar la solicitud de restablecimiento de contraseña
     }
   }
 }

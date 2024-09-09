@@ -1,5 +1,5 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, AnimationController, Animation } from '@ionic/angular'; // Importa AnimationController y Animation
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { NavController, AnimationController, Animation } from '@ionic/angular'; 
 import { AuthService } from 'src/app/servicio/autentificacion.service';
 
 @Component({
@@ -7,51 +7,65 @@ import { AuthService } from 'src/app/servicio/autentificacion.service';
   templateUrl: './perfil-usuario.page.html',
   styleUrls: ['./perfil-usuario.page.scss'],
 })
-export class PerfilUsuarioPage {
-  @ViewChild('container', { static: true }) container!: ElementRef; // Referencia al contenedor de la página
+export class PerfilUsuarioPage implements OnInit {
+  @ViewChild('container', { static: true }) container!: ElementRef;
+  
+  usuario: any; 
+  imagenPerfil: string = ''; 
 
   constructor(
     private navCtrl: NavController,
     private authService: AuthService,
-    private animationCtrl: AnimationController // Injecta AnimationController
+    private animationCtrl: AnimationController 
   ) {}
+
+  ngOnInit() {
+    this.cargarUsuario(); 
+  }
+
+  cargarUsuario() {
+    this.usuario = this.authService.obtenerUsuarioAutenticado();
+    if (this.usuario) {
+      this.imagenPerfil = this.usuario.img || 'assets/imagenes/default-profile.png'; 
+    }
+  }
 
   verAsistencia() {
     this.playTransitionAnimation(() => {
-      this.navCtrl.navigateForward('/ver-asistencia', { animated: false }); // Navega sin la animación predeterminada
+      this.navCtrl.navigateForward('/ver-asistencia', { animated: false }); 
     });
   }
 
   Registrar() {
     this.playTransitionAnimation(() => {
-      this.navCtrl.navigateForward('/escanear-qr', { animated: false }); // Navega sin la animación predeterminada
+      this.navCtrl.navigateForward('/escanear-qr', { animated: false }); 
     });
   }
 
   cerrarSesion() {
     this.playTransitionAnimation(() => {
       this.authService.cerrarSesion();
-      this.navCtrl.navigateRoot('/login', { animated: false }); // Navega sin la animación predeterminada
+      this.navCtrl.navigateRoot('/login', { animated: false }); 
     });
   }
-
-  // Método para reproducir la animación personalizada
+  
   playTransitionAnimation(callback: () => void) {
     const animation: Animation = this.animationCtrl
       .create()
-      .addElement(this.container.nativeElement) // Usa el contenedor de la página
-      .duration(500) // Duración de la animación
-      .easing('ease-in-out') // Curva de animación
+      .addElement(this.container.nativeElement) 
+      .duration(500) 
+      .easing('ease-in-out') 
       .keyframes([
         { offset: 0, opacity: '1', transform: 'translateX(0)' },
         { offset: 1, opacity: '0', transform: 'translateX(-100%)' },
       ]);
 
     animation.play().then(() => {
-      callback(); // Ejecuta la función de navegación después de que termine la animación
+      callback(); 
     });
   }
+
   volver() {
-    this.navCtrl.back(); // Utiliza NavController para regresar a la página anterior
+    this.navCtrl.back(); 
   }
 }
