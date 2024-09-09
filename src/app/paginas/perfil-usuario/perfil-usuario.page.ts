@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { NavController, AnimationController, Animation } from '@ionic/angular'; // Importa AnimationController y Animation
 import { AuthService } from 'src/app/servicio/autentificacion.service';
 
 @Component({
@@ -8,18 +8,50 @@ import { AuthService } from 'src/app/servicio/autentificacion.service';
   styleUrls: ['./perfil-usuario.page.scss'],
 })
 export class PerfilUsuarioPage {
-  constructor(private router: Router, private authService: AuthService) {}
+  @ViewChild('container', { static: true }) container!: ElementRef; // Referencia al contenedor de la página
+
+  constructor(
+    private navCtrl: NavController,
+    private authService: AuthService,
+    private animationCtrl: AnimationController // Injecta AnimationController
+  ) {}
 
   verAsistencia() {
-    this.router.navigate(['/ver-asistencia']); // Redirige a la página de historial de asistencia
+    this.playTransitionAnimation(() => {
+      this.navCtrl.navigateForward('/ver-asistencia', { animated: false }); // Navega sin la animación predeterminada
+    });
   }
-  
+
   Registrar() {
-    this.router.navigate(['/escanear-qr']); // Redirige a la página de historial de asistencia
+    this.playTransitionAnimation(() => {
+      this.navCtrl.navigateForward('/escanear-qr', { animated: false }); // Navega sin la animación predeterminada
+    });
   }
 
   cerrarSesion() {
-    this.authService.cerrarSesion(); // Cierra la sesión del usuario
-    this.router.navigate(['/login']); // Redirige a la página de login
+    this.playTransitionAnimation(() => {
+      this.authService.cerrarSesion();
+      this.navCtrl.navigateRoot('/login', { animated: false }); // Navega sin la animación predeterminada
+    });
+  }
+
+  // Método para reproducir la animación personalizada
+  playTransitionAnimation(callback: () => void) {
+    const animation: Animation = this.animationCtrl
+      .create()
+      .addElement(this.container.nativeElement) // Usa el contenedor de la página
+      .duration(500) // Duración de la animación
+      .easing('ease-in-out') // Curva de animación
+      .keyframes([
+        { offset: 0, opacity: '1', transform: 'translateX(0)' },
+        { offset: 1, opacity: '0', transform: 'translateX(-100%)' },
+      ]);
+
+    animation.play().then(() => {
+      callback(); // Ejecuta la función de navegación después de que termine la animación
+    });
+  }
+  volver() {
+    this.navCtrl.back(); // Utiliza NavController para regresar a la página anterior
   }
 }

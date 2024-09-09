@@ -1,5 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!-- Botón de retroceso -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" (click)="volver()"></ion-back-button>
+    </ion-buttons>
     <ion-title>Su asistencia</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,14 +14,27 @@
       <ion-card-title>Registro de Asistencia</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let materia of materias">
-          <ion-label>
-            <h2>{{ materia }}</h2>
-            <p>Asistencia: {{ asistenciaPorcentajes[materia] }}%</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
+      <!-- Acordeón para desplegar la información de asistencia por asignatura -->
+      <ion-accordion-group>
+        <ion-accordion *ngFor="let seccion of historialAsistencia">
+          <ion-item slot="header" color="purple">
+            <ion-label>Asignatura: {{ seccion.seccion }}</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-list>
+              <ion-item *ngFor="let clase of seccion.asistencia">
+                <ion-label>
+                  <h2>ID de Clase: {{ clase.claseId }}</h2>
+                  <p>Fecha: {{ clase.fecha }}</p>
+                  <p>Asistido: {{ clase.asistido ? 'Sí' : 'No' }}</p>
+                </ion-label>
+                <ion-badge color="success" *ngIf="clase.asistido">Presente</ion-badge>
+                <ion-badge color="danger" *ngIf="!clase.asistido">Ausente</ion-badge>
+              </ion-item>
+            </ion-list>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
     </ion-card-content>
   </ion-card>
 </ion-content>

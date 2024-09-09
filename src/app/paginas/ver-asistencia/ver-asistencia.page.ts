@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular'; // Importa NavController de Ionic
 import { AuthService } from 'src/app/servicio/autentificacion.service';
 
 @Component({
@@ -7,18 +8,19 @@ import { AuthService } from 'src/app/servicio/autentificacion.service';
   styleUrls: ['./ver-asistencia.page.scss'],
 })
 export class VerAsistenciaPage implements OnInit {
-  materias: string[] = []; // Lista de materias
-  asistenciaPorcentajes: any = {}; // Almacena los porcentajes de asistencia por materia
+  historialAsistencia: any[] = []; // Define la propiedad para almacenar el historial de asistencia
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private navCtrl: NavController) {} // Inyecta NavController y AuthService
 
   ngOnInit() {
-    this.cargarAsistencia(); // Cargar los porcentajes al iniciar la página
+    this.cargarAsistencia(); // Cargar el historial de asistencia al iniciar la página
   }
 
   cargarAsistencia() {
-    const asistencia = this.authService.obtenerHistorialAsistencia();
-    this.materias = Object.keys(asistencia); // Obtiene las materias
-    this.asistenciaPorcentajes = asistencia; // Almacena los porcentajes de asistencia por materia
+    this.historialAsistencia = this.authService.obtenerHistorialAsistencia(); // Obtiene el historial de asistencia del usuario autenticado
+  }
+
+  volver() {
+    this.navCtrl.back(); // Utiliza NavController para navegar a la página anterior
   }
 }
